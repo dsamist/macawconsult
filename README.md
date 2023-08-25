@@ -1,2 +1,2 @@
 # macawconsult
-This repository is for all that concerns macawconsult project from fola
+This repository is for all that concerns macawconsult web application project.
