@@ -27,10 +27,10 @@ jobs:
             ls -ltra
             cat README.md
 
-#we can also use 3rd party library
+# #we can also use 3rd party library
 
-        - name: Generate ASCII artwork
-          run: cowsay -f dragon "Run for cover, I am a DRAGON......RAWR" >> dragon.txt
+#         - name: Generate ASCII artwork
+#           run: cowsay -f dragon "Run for cover, I am a DRAGON......RAWR" >> dragon.txt
           #cowsay is an ascii library use for generating artwork and it shows a cowing saying something, however, the animal can be changes using the "-f" flag followed by the animal name
           #for context, this step will fail if the "cowsay" library is not installed on the ubuntu machine, and this can be done with an initial step before this
               
