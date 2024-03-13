@@ -25,4 +25,9 @@ jobs:
         - name: List Repo files
           run: ls -ltra
 
+#we can move the whole steps into a shell script and then exectute the shell script as part of the workflow
+
+        - name: Executing Shell Script
+          run: ./ascii-script.sh
+
         
