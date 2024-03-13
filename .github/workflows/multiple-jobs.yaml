@@ -23,7 +23,7 @@ jobs:
         needs: build_job_1
         runs-on: ubuntu-latest
         steps:
-        - name: Upload the dragon file
+        - name: Download the dragon file
           uses: actions/download-artifact@v4
           with:
             name: dragon-file        
@@ -35,7 +35,7 @@ jobs:
         needs: test_job_2
         runs-on: ubuntu-latest
         steps:
-        - name: Upload the dragon file
+        - name: Download the dragon file
           uses: actions/download-artifact@v4
           with:
             name: dragon-file  
