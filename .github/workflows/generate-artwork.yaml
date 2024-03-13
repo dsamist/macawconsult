@@ -28,6 +28,8 @@ jobs:
 #we can move the whole steps into a shell script and then exectute the shell script as part of the workflow
 
         - name: Executing Shell Script
-          run: ./ascii-script.sh
+          run: | 
+            chmod +x ascii-script.sh
+            ./ascii-script.sh
 
         
