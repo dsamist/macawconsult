@@ -4,13 +4,22 @@ on:
     push:
     workflow_dispatch: 
 
-
+#the matrix configuration is to allow us configure multiple jobs based on a combination of defined variables. That means instead of creating multiple jobs lets say based on the OS,
+#we can create one job that allows us to run it on multiple times based on the defined matrix
 jobs:
     deploy:
         strategy:
+            fail-fast: false    #failfast is set to true by default and it's function is to cancle any running or queued job when another job fails
+            max-parallel: 2     #this allows for only two jobs to run at a time
             matrix:
                 os: [ubuntu-latest, ubuntu-20.04, windows-latest]
                 images: [hello-world, alpine]
+                exclude:
+                    - images: alpine
+                      os: windows-latest
+                include:
+                  - images: amd64/alpine
+                    os: ubuntu-20.04
         
         runs-on: ${{matrix.os}}
 
@@ -20,4 +29,8 @@ jobs:
             
             - name: Run an image
               run: docker run ${{matrix.images}}
-                
+
+
+#in the workflow above, the alpine image will fail execution on the windows machine, and at such, we don't want the alpine image to be executed on the windows machine
+#to do this, that is where the exclude keyword comes into play in the matrix definition, and the child keys in the exclude. Similarly, u can also include new functions
+#using inlcude
